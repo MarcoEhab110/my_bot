@@ -1,7 +1,11 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <link
-    name="Chassis">
+    
+  <link name="base_link">
+  </link>
+
+  <link
+      name="Chassis">
     <inertial>
       <origin
         xyz="0.0203782438363387 -1.18383917687466E-17 -0.0153025459993687"
@@ -38,6 +42,13 @@
       </geometry>
     </collision>
   </link>
+
+  <joint name="Chassis_Joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="Chassis"/>
+    <origin xyz="-0.071091 0 0.098" rpy="0 0 0"/>
+  </joint>
+    
   <gazebo reference="Chassis">
     <material>Gazebo/Grey</material>
   </gazebo>
