@@ -1,0 +1,391 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <link
+    name="Chassis">
+    <inertial>
+      <origin
+        xyz="0.0203782438363387 -1.18383917687466E-17 -0.0153025459993687"
+        rpy="0 0 3.14159" />
+      <mass
+        value="4.23560194791636" />
+      <inertia
+        ixx="0.048034439666328"
+        ixy="-4.10992471940563E-17"
+        ixz="0.00148548193132718"
+        iyy="0.136863974165332"
+        iyz="5.89771885316106E-18"
+        izz="0.181214696041482" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 3.14159" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/meshes/Chassis.STL" />
+      </geometry>
+      <material name="grey">
+      <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 3.14159" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/meshes/Chassis.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="Chassis">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <link
+    name="Left_Wheel">
+    <inertial>
+      <origin
+        xyz="-3.22342256156697E-18 1.38777878078145E-17 0.0347026647551488"
+        rpy="0 0 0" />
+      <mass
+        value="0.39621849931908" />
+      <inertia
+        ixx="0.000485123108611313"
+        ixy="-2.82104377803696E-20"
+        ixz="1.67935343939584E-20"
+        iyy="0.000485123108611313"
+        iyz="-4.11956137070721E-20"
+        izz="0.000874956594332577" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/meshes/Left_Wheel.STL" />
+      </geometry>
+     <material name="white">
+      <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/meshes/Left_Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="Left_Wheel">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <joint
+    name="Left_Wheel_Joint"
+    type="continuous">
+    <origin
+      xyz="0.071091 0.11 -0.098"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Left_Wheel" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="4.5"
+      velocity="7.3" />
+    <dynamics
+      friction="0" />
+  </joint>
+  <link
+    name="Right_Wheel">
+    <inertial>
+      <origin
+        xyz="4.79414606914455E-18 2.77555756156289E-17 0.0347026647551487"
+        rpy="0 0 0" />
+      <mass
+        value="0.39621849931908" />
+      <inertia
+        ixx="0.000485123108611313"
+        ixy="5.99006926174706E-21"
+        ixz="2.30794714615525E-20"
+        iyy="0.000485123108611313"
+        iyz="-4.42495676652561E-21"
+        izz="0.000874956594332577" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/meshes/Right_Wheel.STL" />
+      </geometry>
+      <material name="white">
+      <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/meshes/Right_Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="Right_Wheel">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <joint
+    name="Right_Wheel_Joint"
+    type="continuous">
+    <origin
+      xyz="0.071091 -0.11 -0.098"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Right_Wheel" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="4.5"
+      velocity="7.3" />
+    <dynamics
+      friction="0" />
+  </joint>
+  <link
+    name="Front_Castor">
+    <inertial>
+      <origin
+        xyz="-0.0233354390073933 -1.80883961580674E-09 -0.0229714404685051"
+        rpy="0 0 0" />
+      <mass
+        value="0.0654106884528845" />
+      <inertia
+        ixx="1.38119157297847E-05"
+        ixy="-1.97400217600618E-12"
+        ixz="-1.47239013893213E-06"
+        iyy="1.77868648525204E-05"
+        iyz="1.1557540821217E-12"
+        izz="1.36972583688958E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/meshes/Front_Castor.STL" />
+      </geometry>
+     <material name="orange">
+      <color rgba="1 0.3 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/meshes/Front_Castor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="Front_Castor">
+    <material>Gazebo/Orange</material>
+    <mu1 value="0.001"/>
+    <mu2 value="0.001"/>
+  </gazebo>
+  <joint
+    name="Front_Castor_Joint"
+    type="fixed">
+    <origin
+      xyz="0.36779 0 -0.1005"
+      rpy="0 0 0" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Front_Castor" />
+    <axis
+      xyz="0 0 0" />
+       <dynamics
+      friction="0" />
+  </joint>
+  <link
+    name="Rear_Castor">
+    <inertial>
+      <origin
+        xyz="-0.0233354390073932 -1.80883961612269E-09 -0.0229714404685051"
+        rpy="0 0 0" />
+      <mass
+        value="0.0654106884528846" />
+      <inertia
+        ixx="1.38119157297847E-05"
+        ixy="-1.97400217603574E-12"
+        ixz="-1.47239013893213E-06"
+        iyy="1.77868648525204E-05"
+        iyz="1.15575408219418E-12"
+        izz="1.36972583688958E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/meshes/Rear_Castor.STL" />
+      </geometry>
+      <material name="orange">
+      <color rgba="1 0.3 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/meshes/Rear_Castor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="Rear_Castor">
+    <material>Gazebo/Orange</material>
+    <mu1 value="0.001"/>
+    <mu2 value="0.001"/>
+  </gazebo>
+  <joint
+    name="Rear_Castor_Joint"
+    type="fixed">
+    <origin
+      xyz="-0.25221 0 -0.1005"
+      rpy="0 0 0" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Rear_Castor" />
+    <axis
+      xyz="0 0 0" />
+       <dynamics
+      friction="0" />
+  </joint>
+  <link
+    name="Lower_Base">
+    <inertial>
+      <origin
+        xyz="-0.000279103374140138 1.35247805585943E-10 0.00862583000653431"
+        rpy="0 0 0" />
+      <mass
+        value="1.46575361159457" />
+      <inertia
+        ixx="0.012172822804178"
+        ixy="-4.42988226493302E-12"
+        ixz="1.00284119810479E-05"
+        iyy="0.0158283512149053"
+        iyz="-1.29590731046659E-11"
+        izz="0.027288819348399" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/meshes/Lower_Base.STL" />
+      </geometry>
+     <material name="blue">
+      <color rgba="0 0 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/meshes/Lower_Base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="Lower_Base">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <joint
+    name="Lower_Base_Joint"
+    type="fixed">
+    <origin
+      xyz="-0.068909 0 0.001"
+      rpy="0 0 0" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Lower_Base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Upper_Base">
+    <inertial>
+      <origin
+        xyz="0.000444577303509469 3.740499966758E-09 0.0303987337399961"
+        rpy="0 0 0" />
+      <mass
+        value="1.34490227704504" />
+      <inertia
+        ixx="0.0122660173428346"
+        ixy="2.12906077548582E-11"
+        ixz="2.1575768958881E-05"
+        iyy="0.0162091918231284"
+        iyz="-1.12189085592896E-10"
+        izz="0.0277514861364729" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/meshes/Upper_Base.STL" />
+      </geometry>
+      <material name="blue">
+      <color rgba="0 0 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/meshes/Upper_Base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="Upper_Base">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <joint
+    name="Upper_Base_Joint"
+    type="prismatic">
+    <origin
+      xyz="-0.00015743 0 0.040238"
+      rpy="0 0 0" />
+    <parent
+      link="Lower_Base" />
+    <child
+      link="Upper_Base" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.04"
+      effort="100"
+      velocity="0.01" />
+  </joint>
+</robot>
